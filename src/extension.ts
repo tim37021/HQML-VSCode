@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as child_process from 'child_process';
-import * as gzip from 'zlib';
+import * as unzip from 'unzip';
 
 const identifier_re = /(\w+)\s*{/gm;
 
@@ -180,15 +180,13 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('"hqml" is now active!');
 
-	
-
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.create', () => {
 		// The code you place here will be executed every time your command is executed
 		if(vscode.workspace.workspaceFolders !== undefined) {
-			child_process.execSync(`wsl hqml create .`);
+			child_process.execSync(`hqml create .`);
 			// Display a message box to the user
 			vscode.window.showInformationMessage('HQML project created!');
 		} else {
@@ -201,7 +199,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable2 = vscode.commands.registerCommand('extension.build', () => {
 		// The code you place here will be executed every time your command is executed
 		if(vscode.workspace.workspaceFolders !== undefined) {
-			child_process.execSync(`wsl hqml build`);
+			child_process.execSync(`hqml build`);
 		}
 		
 	});

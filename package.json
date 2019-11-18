@@ -1,5 +1,7 @@
 {
 	"name": "hqml",
+	"publisher": "HcMusic",
+	"repository": "https://github.com/tim37021/HQML-VSCode",
 	"displayName": "HQML",
 	"description": "HQML language support and tools",
 	"version": "0.0.1",
@@ -15,7 +17,7 @@
 		"*"
 	],
 	"main": "./out/extension.js",
-	"contributes": { 
+	"contributes": {
 		"commands": [
 			{
 				"command": "extension.create",
@@ -38,11 +40,15 @@
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.11.7",
+		"@types/unzip": "^0.1.1",
 		"@types/vscode": "^1.40.0",
 		"glob": "^7.1.5",
 		"mocha": "^6.2.2",
-		"typescript": "^3.6.4",
 		"tslint": "^5.20.0",
+		"typescript": "^3.6.4",
 		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"unzip": "^0.1.11"
 	}
 }
